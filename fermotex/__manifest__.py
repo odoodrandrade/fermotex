@@ -22,7 +22,7 @@
     # 'external_dependencies': {'python' : ["openid"]},
     # always loaded
     'data': [
-        #"security/ir.model.access.csv",
+        "security/security.xml",
         "views/fermotex_sale_order.xml",
         #"views/gemex_proyecto.xml",
         #"views/gemex_fabricacion.xml",
