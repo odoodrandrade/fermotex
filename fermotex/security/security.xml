@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="0">
+        <record model="ir.module.category" id="module_category_fermotex">
+            <field name="name">Fermotex</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="group_allow_confirm_unlock_so" model="res.groups">
+            <field name="name">Allow Confirm SO's</field>
+            <field name="category_id" ref="module_category_fermotex"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <field name="comment">Users in this group can confirm &amp; unlock Sale Orders for further editing.</field>
+        </record>
+
     </data>
 </odoo>
