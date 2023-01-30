@@ -2,4 +2,5 @@
 
 
 from . import sale_order_inherith
+from . import account_move_inherith
 

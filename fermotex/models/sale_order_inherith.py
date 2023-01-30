@@ -12,7 +12,6 @@ class SaleOrderInherith(models.Model):
         for rec in self:
             rec.delivery_street = rec.warehouse_id.partner_id.contact_address_complete
             print(rec.warehouse_id.partner_id.contact_address)
-            
 
     def action_confirm(self):
         for rec in self:
