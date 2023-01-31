@@ -41,4 +41,18 @@
         </field>
     </record>
 
+    <record id="view_account_move_filter" model="ir.ui.view">
+        <field name="name">account.move.filter.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="sequence_invoice"/>
+            </field>
+            <filter name="salesperson" position="before">
+                <filter name="state_secuence" string="Tipo de factura fermotex" context="{'group_by':'state_secuence'}"/>
+            </filter>
+        </field>
+    </record>
+
 </odoo>
