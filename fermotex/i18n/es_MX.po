@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e-20230106\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 04:27+0000\n"
-"PO-Revision-Date: 2023-03-10 04:27+0000\n"
+"POT-Creation-Date: 2023-03-11 03:38+0000\n"
+"PO-Revision-Date: 2023-03-11 03:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: fermotex
-#: model:res.groups,name:fermotex.group_allow_confirm_unlock_so
-msgid "Allow Confirm SO's"
-msgstr "Confirmar ventas"
-
-#. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_order_form_inherit
 msgid "Authorize"
 msgstr "Autorizar"
+
+#. module: fermotex
+#: model:res.groups,name:fermotex.group_allow_confirm_unlock_so
+msgid "Authorize Sale Order"
+msgstr "Autorizar ventas"
 
 #. module: fermotex
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__authorized
@@ -160,8 +160,7 @@ msgstr "Error al subir"
 
 #. module: fermotex
 #: model:res.groups,comment:fermotex.group_allow_confirm_unlock_so
-msgid ""
-"Users in this group can confirm & unlock Sale Orders for further editing."
+msgid "Users in this group can authorize Sale Orders."
 msgstr ""
 "Los usuarios de este grupo pueden confirmar y desbloquear pedidos de venta "
 "para su posterior edición."

@@ -35,7 +35,9 @@
                 <xpath expr="//button[@name='action_confirm'][2]" position="replace">
                     <button name="action_authorize" string="Authorize" type="object"
                             class="btn-primary" data-hotkey="g"
-                            attrs="{'invisible': ['|', ('need_auth', '=', False), ('state', 'in', ['authorized', 'sale', 'cancel'])]}"/>
+                            attrs="{'invisible': ['|', ('need_auth', '=', False), ('state', 'in', ['authorized', 'sale', 'cancel'])]}"
+                            groups="fermotex.group_allow_confirm_unlock_so"
+                    />
 
                     <!-- <button name="action_confirm" id="action_confirm" data-hotkey="v"
                              string="Confirm" class="btn-primary" type="object" context="{'validate_analytic': True}"
