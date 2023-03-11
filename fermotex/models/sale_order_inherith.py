@@ -38,7 +38,7 @@ class SaleOrderInherith(models.Model):
     def _compute_has_to_be_confirm(self):
         need_authorization = False
         for lines in self.order_line:
-            if lines.price_unit > lines.product_id.list_price:
+            if lines.price_unit < lines.product_id.list_price:
                 need_authorization = True
         self.need_auth = need_authorization
         if need_authorization is False:
