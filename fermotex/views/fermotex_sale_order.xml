@@ -15,9 +15,16 @@
 
                 </field>
                 <xpath expr="//button[@name='action_confirm'][2]" position="replace">
+
                     <button name="action_authorize" string="Authorize" type="object"
                             class="btn-primary" data-hotkey="g"
-                            attrs="{'invisible': ['|', ('need_auth', '=', False), ('state', 'in', ['authorized', 'sale', 'cancel'])]}"
+                            attrs="{'invisible': ['|', ('need_auth', '=', False), ('state', 'in', ['authorized', 'rejected', 'sale', 'cancel'])]}"
+                            groups="fermotex.group_allow_confirm_unlock_so"
+                    />
+
+                    <button name="action_reject" string="Reject" type="object"
+                            class="btn-primary" data-hotkey="g"
+                            attrs="{'invisible': ['|', ('need_auth', '=', False), ('state', 'in', ['authorized', 'rejected', 'sale', 'cancel'])]}"
                             groups="fermotex.group_allow_confirm_unlock_so"
                     />
 
@@ -32,19 +39,19 @@
                 <xpath expr="//button[@name='action_quotation_send'][1]" position="replace">
                     <button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice"
                             groups="sale.group_proforma_sales"
-                            attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'to-auth', 'authorized']), ('invoice_count','&gt;=',1)]}"
+                            attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'to-auth', 'authorized', 'rejected']), ('invoice_count','&gt;=',1)]}"
                             context="{'proforma': True, 'validate_analytic': True}"/>
                 </xpath>
                 <xpath expr="//button[@name='action_quotation_send'][1]" position="replace">
                     <button name="action_quotation_send" string="Send by Email" type="object"
-                            states="draft,to-auth,authorized" data-hotkey="g" context="{'validate_analytic': True}"/>
+                            states="draft,to-auth,authorized,rejected" data-hotkey="g" context="{'validate_analytic': True}"/>
                 </xpath>
                 <xpath expr="//field[@name='state']" position="replace">
                     <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
                 </xpath>
                 <xpath expr="//button[@name='action_cancel']" position="replace">
                     <button name="action_cancel" type="object" string="Cancel"
-                            attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'authorized', 'sent','sale']), ('id', '=', False)]}"
+                            attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'authorized', 'rejected', 'sent','sale']), ('id', '=', False)]}"
                             data-hotkey="z"/>
                 </xpath>
             </field>

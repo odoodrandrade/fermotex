@@ -12,6 +12,7 @@ class SaleOrderInherith(models.Model):
             ('draft', "Quotation"),
             ('sent', "Quotation Sent"),
             ('to-auth', "To authorize"),
+            ('rejected', "Rejected"),
             ('authorized', "Authorized"),
             ('sale', "Sales Order"),
             ('done', "Locked"),
@@ -27,6 +28,10 @@ class SaleOrderInherith(models.Model):
     def action_authorize(self):
         for records in self:
             records.write({'state': 'authorized'})
+
+    def action_reject(self):
+        for records in self:
+            records.write({'state': 'rejected'})
 
     @api.depends('warehouse_id')
     def compute_delivery_street(self):
