@@ -35,6 +35,9 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_out_invoice_tree"/>
         <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_register_payment']" position="after">
+                <button name="action_print_statement" type="object" string="Imprimir Estado de cuenta"/>
+            </xpath>
             <field name="name" position="before">
                 <field name="sequence_invoice" optional="show"/>
             </field>
@@ -50,7 +53,8 @@
                 <field name="sequence_invoice"/>
             </field>
             <filter name="salesperson" position="before">
-                <filter name="state_secuence" string="Tipo de factura fermotex" context="{'group_by':'state_secuence'}"/>
+                <filter name="state_secuence" string="Tipo de factura fermotex"
+                        context="{'group_by':'state_secuence'}"/>
             </filter>
         </field>
     </record>

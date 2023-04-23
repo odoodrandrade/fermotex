@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <report
+        id="action_report_check_acumulado_bbva"
+        string="Cheque BBVA"
+        model="account.payment"
+        name="account_check_printing_report_base.report_check_acumulado_bbva"
+        file="account_check_printing_report_base.report_check_acumulado_bbva"
+        report_type="qweb-pdf"
+        paperformat="account_check_printing_report_base.paperformat_check_gemex"
+        menu="False"
+    />
+    <report
+        id="action_report_check_acumulado_banbajio"
+        string="Cheque BanBajio"
+        model="account.payment"
+        name="account_check_printing_report_base.report_check_acumulado_banbajio"
+        file="account_check_printing_report_base.report_check_acumulado_banbajio"
+        report_type="qweb-pdf"
+        paperformat="account_check_printing_report_base.paperformat_check_gemex"
+        menu="False"
+    />
+
+    <report
+        id="action_report_check_acumulado_santander"
+        string="Cheque Santander"
+        model="account.payment"
+        name="account_check_printing_report_base.report_check_acumulado_santander"
+        file="account_check_printing_report_base.report_check_acumulado_santander"
+        report_type="qweb-pdf"
+        paperformat="account_check_printing_report_base.paperformat_check_gemex"
+        menu="False"
+    />
+
+<!--
+    <report
+        id="action_report_check_base"
+        string="Cheque Base"
+        model="account.payment"
+        name="account_check_printing_report_base.report_check_base"
+        file="account_check_printing_report_base.report_check_base"
+        report_type="qweb-pdf"
+        paperformat="account_check_printing_report_base.paperformat_check"
+    />
+    <report
+        id="action_report_check_base_a4"
+        string="Cheque Base A4"
+        model="account.payment"
+        name="account_check_printing_report_base.report_check_base_a4"
+        file="account_check_printing_report_base.report_check_base_a4"
+        report_type="qweb-pdf"
+        paperformat="base.paperformat_euro"
+    />
+    -->
+</odoo>

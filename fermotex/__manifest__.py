@@ -26,7 +26,7 @@
         "security/security.xml",
         "views/fermotex_sale_order.xml",
         "views/fermotex_account_move.xml",
-        # "views/gemex_proyecto.xml",
+        "views/report_account_invoice_statement.xml",
         # "views/gemex_fabricacion.xml",
     ],
     'qweb': [],
