@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_account_statement">
+        <t t-call="web.html_container">
+            <div class="header"/>
+            <div class="article">
+                    <div class="page">
+                        <div style="padding-left: 100mm; padding-top: 20mm;">
+                                <strong t-esc="payment_date" t-options='{"widget": "date"}'/>
+
+                        </div>
+
+                        <div id="informations" class="row">
+
+                            <div class="col-9 bm-2" style="padding-left: 15mm; padding-top: 3mm;">
+                                <p t-esc="partner_id"/>
+                            </div>
+                            <div class="col-3 bm-2" style="padding-left: 18mm; padding-top: 1mm;">
+                                <t t-set="decimal_split" t-value="str(total_cheque).split('.')"/>
+                                <t t-set="add_separators" t-value="'{:,}'.format(int(decimal_split[0]))"/>
+                                <t t-set="result" t-value="add_separators.replace(',', ',')"/>
+                                <t t-if="len(decimal_split) > 1">
+                                    <t t-set="final_result" t-value="'.'.join([result, decimal_split[1]])"/>
+                                </t>
+
+                                <t t-if="len(decimal_split) == 1">
+                                    <t t-set="final_result" t-value="'.'.join([result, '00'])"/>
+                                </t>
+
+                                <p t-esc="final_result"/>
+                            </div>
+                        </div>
+
+                        <div style="padding-top: 2mm; padding-left: 11mm;">
+                            <t t-set="decimales_split" t-value="str(final_result).split('.')"/>
+                            <t t-set="decimales" t-value="decimales_split[1]"/>
+
+                            <span>( <span t-esc="check_amount_in_words"/>&#160;</span>
+                            <span t-esc="decimales"/>/100 M.N.)
+                        </div>
+                    </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_check_acumulado_banbajio">
+        <t t-call="web.html_container">
+<div class="header"/>
+            <div class="article">
+                    <div class="page">
+                        <div style="padding-left: 85mm; padding-top: 15.5mm;">
+                                <strong t-esc="payment_date" t-options='{"widget": "date"}'/>
+                        </div>
+
+                        <div id="informations" class="row" style="padding-top: 2.5mm;">
+                            <div class="col-9 bm-2">
+                                <p t-esc="partner_id"/>
+                            </div>
+                            <div class="col-3 bm-2" style="padding-left: 19mm; padding-top: 3mm;">
+                                <t t-set="decimal_split" t-value="str(total_cheque).split('.')"/>
+                                <t t-set="add_separators" t-value="'{:,}'.format(int(decimal_split[0]))"/>
+                                <t t-set="result" t-value="add_separators.replace(',', ',')"/>
+                                <t t-if="len(decimal_split) > 1">
+                                    <t t-set="final_result" t-value="'.'.join([result, decimal_split[1]])"/>
+                                </t>
+
+                                <t t-if="len(decimal_split) == 1">
+                                    <t t-set="final_result" t-value="'.'.join([result, '00'])"/>
+                                </t>
+
+                                <p t-esc="final_result"/>
+                            </div>
+                        </div>
+
+                        <div style="padding-top: 1mm;" align="left">
+                            <t t-set="decimales_split" t-value="str(final_result).split('.')"/>
+                            <t t-set="decimales" t-value="decimales_split[1]"/>
+
+                            <span>( <span t-esc="check_amount_in_words"/>&#160;</span>
+                            <span t-esc="decimales"/>/100 M.N.)
+                        </div>
+                    </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_check_acumulado_santander">
+        <t t-call="web.html_container">
+            <div class="header"/>
+            <div class="article">
+                    <div class="page">
+                        <div style="padding-left: 110mm; padding-top: 7mm;">
+                                <strong t-esc="payment_date" t-options='{"widget": "date"}'/>
+                        </div>
+
+                        <br/>
+
+                        <div id="informations" class="row" style="padding-top: 6mm;">
+                            <div class="col-8 bm-2" style="padding-left: 13mm;">
+                                <p t-esc="partner_id"/>
+                            </div>
+                            <div class="col-4 bm-2" style="padding-left: 30mm;">
+                                <t t-set="decimal_split" t-value="str(total_cheque).split('.')"/>
+                                <t t-set="add_separators" t-value="'{:,}'.format(int(decimal_split[0]))"/>
+                                <t t-set="result" t-value="add_separators.replace(',', ',')"/>
+                                <t t-if="len(decimal_split) > 1">
+                                    <t t-set="final_result" t-value="'.'.join([result, decimal_split[1]])"/>
+                                </t>
+
+                                <t t-if="len(decimal_split) == 1">
+                                    <t t-set="final_result" t-value="'.'.join([result, '00'])"/>
+                                </t>
+
+                                <p t-esc="final_result"/>
+                            </div>
+                        </div>
+
+                       <div style="padding-top: 3mm; padding-left: 9mm;">
+                            <t t-set="decimales_split" t-value="str(final_result).split('.')"/>
+                            <t t-set="decimales" t-value="decimales_split[1]"/>
+
+                            <span>( <span t-esc="check_amount_in_words"/>&#160;</span>
+                            <span t-esc="decimales"/>/100 M.N.)
+                        </div>
+                    </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

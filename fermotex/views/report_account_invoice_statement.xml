@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_account_invoice_statement" model="report.paperformat">
+        <field name="name">format - Facturas</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">7</field>
+        <field name="margin_bottom">28</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">7</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <report
+            id="action_report_account_invoice_statement"
+            string="Estado de cuenta facturas"
+            model="account.move"
+            report_type="qweb-pdf"
+            name="fermotex.report_account_invoice_statement"
+            print_report_name="'Estado de cuenta facturas'"
+            paperformat="paperformat_account_invoice_statement"
+            menu="False"
+    />
+
+    <template id="report_account_invoice_statement">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="dateImpression" t-value="{
+			'jour':context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y'),
+			'heure':context_timestamp(datetime.datetime.now()).strftime('%H:%M:%S'),
+			'auteur':user.name
+			}"/>
+
+                <t t-set="amount_total_signed" t-value="0"/>
+                <t t-set="amount_total_vencida" t-value="0"/>
+
+                <div class="page">
+                    <!--    <div style="text-align:center;">
+                            <img src="/gemex/static/src/img/gemex.png" style="width:5%;"/>
+                        </div>-->
+
+                    <div style="margin-left: 10mm; font-size: 25px">
+                        <strong>
+                            Estatus de Facturas
+                        </strong>
+                    </div>
+
+                    <div style="text-align:right; font-size: 15px">
+                        <strong>Fecha de emisión:
+                            <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y %H:%M')"/>
+                        </strong>
+                    </div>
+
+                    <div style="font-size: 20px; border-bottom:4px double black;">
+                        <strong style="margin-left: 5mm;">
+                            Facturas vigentes
+                        </strong>
+                    </div>
+                    <table style="width:100%; font-size: 15px; text-align:center;">
+                        <thead>
+                            <tr style="border-bottom:4px double black">
+                                <th>Factura Fermotex</th>
+                                <th>Número</th>
+                                <th>Cliente</th>
+                                <th>Fecha de factura</th>
+                                <th>Fecha de vencimiento</th>
+                                <th style="text-align:right;">Total</th>
+                                <th>Estado de pago</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="lines" t-as="line">
+                                <tr t-if="line['is_expired'] == False"
+                                    t-att-style="'background-color:white' if line_index%2==0 else 'background-color:#d0d5d9'">
+                                    <td style="text-align:center;">
+                                        <t t-esc="line['sequence_invoice']"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <t t-esc="line['name']"/>
+                                    </td>
+                                    <td style="text-align:center; width:100px;">
+                                        <t t-esc="line['invoice_partner_display_name']"/>
+                                    </td>
+                                    <td style="text-align:center; width:100px;">
+                                        <t t-esc="line['invoice_date']"/>
+                                    </td>
+                                    <td style="text-align:center; width:100px;"
+                                        t-options="{'widget': 'remaining_days'}">
+                                        <t t-esc="line['invoice_date_due']"/>
+                                    </td>
+                                    <td style="text-align:right; width:100px;">
+                                        $
+                                        <t t-esc="'{0:,.2f}'.format(abs(line['amount_total_signed']))"/>
+                                        <t t-set="amount_total_signed"
+                                           t-value="amount_total_signed+line['amount_total_signed']"/>
+                                    </td>
+
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'not_paid'">
+                                        <t>Sin pagar</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'in_payment'">
+                                        <t>En proceso de pago</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'paid'">
+                                        <t>Pagado</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'partial'">
+                                        <t>Pagado parcialmente</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'reversed'">
+                                        <t>Revertido</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'invoicing_legacy'">
+                                        <t>Sistema anterior de facturación</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['state'] == 'draft'">
+                                        <t>Borrador</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['state'] == 'posted'">
+                                        <t>Publicado</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['state'] == 'cancel'">
+                                        <t>Cancelado</t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div style="border-bottom:4px black; font-size: 20px; text-align:right;">
+                        <strong>Total $
+                            <t t-esc="'{0:,.2f}'.format(abs(amount_total_signed))"/>
+                        </strong>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div style="font-size: 20px; border-bottom:4px double black;">
+                        <strong style="margin-left: 10mm;">
+                            Facturas vencidas
+                        </strong>
+                    </div>
+                    <table style="width:100%; font-size: 15px; text-align:center;">
+                        <thead>
+                            <tr style="border-bottom:4px double black">
+                                <th>Factura Fermotex</th>
+                                <th>Número</th>
+                                <th>Cliente</th>
+                                <th>Fecha de factura</th>
+                                <th>Fecha de vencimiento</th>
+                                <th style="text-align:right;">Total</th>
+                                <th>Estado de pago</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-foreach="lines" t-as="line">
+                                <tr t-if="line['is_expired'] == True"
+                                    t-att-style="'background-color:white' if line_index%2==0 else 'background-color:#d0d5d9'">
+                                    <td style="text-align:center;">
+                                        <t t-esc="line['sequence_invoice']"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <t t-esc="line['name']"/>
+                                    </td>
+                                    <td style="text-align:center; width:100px;">
+                                        <t t-esc="line['invoice_partner_display_name']"/>
+                                    </td>
+                                    <td style="text-align:center; width:100px;">
+                                        <t t-esc="line['invoice_date']"/>
+                                    </td>
+                                    <td style="text-align:center; width:100px;"
+                                        t-options="{'widget': 'remaining_days'}">
+                                        <t t-esc="line['invoice_date_due']"/>
+                                    </td>
+                                    <td style="text-align:right; width:100px;">
+                                        $
+                                        <t t-esc="'{0:,.2f}'.format(abs(line['amount_total_signed']))"/>
+                                        <t t-set="amount_total_vencida"
+                                           t-value="amount_total_vencida+line['amount_total_signed']"/>
+                                    </td>
+
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'not_paid'">
+                                        <t>Sin pagar</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'in_payment'">
+                                        <t>En proceso de pago</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'paid'">
+                                        <t>Pagado</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'partial'">
+                                        <t>Pagado parcialmente</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'reversed'">
+                                        <t>Revertido</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['payment_state'] == 'invoicing_legacy'">
+                                        <t>Sistema anterior de facturación</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['state'] == 'draft'">
+                                        <t>Borrador</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['state'] == 'posted'">
+                                        <t>Publicado</t>
+                                    </td>
+                                    <td style="text-align:center;" t-if="line['state'] == 'cancel'">
+                                        <t>Cancelado</t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div style="border-bottom:4px black; font-size: 20px; text-align:right;">
+                        <strong>Total $
+                            <t t-esc="'{0:,.2f}'.format(abs(amount_total_vencida))"/>
+                        </strong>
+                    </div>
+                </div>
+
+                <div class="footer text-center">
+                    <div t-if="report_type == 'pdf'">
+                        <span>
+                            <t t-esc="dateImpression['jour']"/>
+                            /
+                        </span>
+                        <span>Página :
+                            <span class="page"/>
+                            de
+                            <span class="topage"/>
+                        </span>
+
+                    </div>
+                </div>
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>
