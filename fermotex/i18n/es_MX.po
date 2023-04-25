@@ -104,7 +104,7 @@ msgstr "Rechazado"
 #: model:ir.model,name:fermotex.model_sale_order
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__sale
 msgid "Sales Order"
-msgstr "Orden de venta"
+msgstr "Remisión"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_move_form
