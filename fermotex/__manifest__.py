@@ -27,7 +27,7 @@
         "views/fermotex_sale_order.xml",
         "views/fermotex_account_move.xml",
         "views/report_account_invoice_statement.xml",
-        # "views/gemex_fabricacion.xml",
+        "views/fermotex_stock_lot_views.xml",
     ],
     'qweb': [],
 }
