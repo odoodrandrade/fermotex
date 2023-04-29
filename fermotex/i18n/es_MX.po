@@ -6,14 +6,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e-20230106\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-02 03:27+0000\n"
-"PO-Revision-Date: 2023-04-02 03:27+0000\n"
+"POT-Creation-Date: 2023-04-29 05:41+0000\n"
+"PO-Revision-Date: 2023-04-29 05:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: fermotex
+#: model:ir.actions.report,print_report_name:fermotex.action_report_account_invoice_statement
+msgid "'Estado de cuenta facturas'"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid ""
+"<span>Página :\n"
+"                            <span class=\"page\"/>\n"
+"                            de\n"
+"                            <span class=\"topage\"/>\n"
+"                        </span>"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid ""
+"<strong style=\"margin-left: 10mm;\">\n"
+"                            Facturas vencidas\n"
+"                        </strong>"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid ""
+"<strong style=\"margin-left: 5mm;\">\n"
+"                            Facturas vigentes\n"
+"                        </strong>"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid ""
+"<strong>\n"
+"                            Estatus de Facturas\n"
+"                        </strong>"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.actions.act_window,help:fermotex.fermo_action_production_lot_form
+msgid "Add a lot/serial number"
+msgstr "Agregar un lote/número de serie"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_order_form_inherit
@@ -31,14 +75,29 @@ msgid "Authorized"
 msgstr "Autorizado"
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Borrador"
+msgstr ""
+
+#. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_order_form_inherit
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Cancelado"
+msgstr ""
+
+#. module: fermotex
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__cancel
 msgid "Cancelled"
 msgstr "Cancelado"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Cliente"
+msgstr ""
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_order_form_inherit
@@ -56,8 +115,53 @@ msgid "Domicilio de entrega"
 msgstr ""
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "En proceso de pago"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Estado"
+msgstr ""
+
+#. module: fermotex
+#: model:ir.actions.report,name:fermotex.action_report_account_invoice_statement
+msgid "Estado de cuenta facturas"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Estado de pago"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Factura Fermotex"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Fecha de emisión:"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Fecha de factura"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Fecha de vencimiento"
+msgstr ""
+
+#. module: fermotex
 #: model:ir.module.category,name:fermotex.module_category_fermotex
 msgid "Fermotex"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.account_invoice_view_tree
+msgid "Imprimir Estado de cuenta"
 msgstr ""
 
 #. module: fermotex
@@ -71,9 +175,76 @@ msgid "Locked"
 msgstr ""
 
 #. module: fermotex
+#: model:ir.model,name:fermotex.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Número de lote/de serie"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.fermo_product_form_view_procurement_button
+#: model_terms:ir.ui.view,arch_db:fermotex.fermo_product_template_form_view_procurement_button
+msgid "Lot/Serial Numbers"
+msgstr "Números de lote o de serie"
+
+#. module: fermotex
+#: model:ir.actions.act_window,name:fermotex.fermo_action_production_lot_form
+#: model_terms:ir.ui.view,arch_db:fermotex.fermo_view_production_lot_tree
+msgid "Lots/Serial Numbers"
+msgstr "Números de lote o de serie"
+
+#. module: fermotex
+#: model_terms:ir.actions.act_window,help:fermotex.fermo_action_production_lot_form
+msgid ""
+"Lots/Serial numbers help you tracking the path followed by your products.\n"
+"                    From their traceability report you will see the full history of their use, as well as their\n"
+"                    composition."
+msgstr ""
+"Los números de lote/de serie le ayudan a rastrear la ruta de sus productos.\n"
+"            Desde su reporte de trazabilidad verá el historial completo de su uso, así como su composición."
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.search_product_lot_filter_inherith
+msgid "More than 0"
+msgstr "Cantidad mayor a 0"
+
+#. module: fermotex
 #: model:ir.model.fields,field_description:fermotex.field_sale_order__need_auth
 msgid "Need auth"
 msgstr "Requiere autorización"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Número"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Pagado"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Pagado parcialmente"
+msgstr ""
+
+#. module: fermotex
+#: model:ir.model,name:fermotex.model_product_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: fermotex
+#: model:ir.model,name:fermotex.model_product_product
+msgid "Product Variant"
+msgstr "Variantes de producto"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Publicado"
+msgstr ""
+
+#. module: fermotex
+#: model:ir.model.fields,field_description:fermotex.field_stock_lot__product_qty_fermo
+msgid "Quantity"
+msgstr "Cantidad"
 
 #. module: fermotex
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__draft
@@ -101,10 +272,15 @@ msgid "Rejected"
 msgstr "Rechazado"
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Revertido"
+msgstr ""
+
+#. module: fermotex
 #: model:ir.model,name:fermotex.model_sale_order
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__sale
 msgid "Sales Order"
-msgstr "Remisión"
+msgstr "Orden de venta"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_move_form
@@ -127,6 +303,21 @@ msgstr "Envíar por Email"
 #: model:ir.model.fields,field_description:fermotex.field_account_payment__sequence_invoice
 msgid "Sequence fermotex"
 msgstr "Factura fermotex"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.search_product_lot_filter_inherith
+msgid "Show items with more than 0 quantity"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Sin pagar"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Sistema anterior de facturación"
+msgstr ""
 
 #. module: fermotex
 #: model:ir.model.fields,field_description:fermotex.field_sale_order__state
@@ -160,6 +351,22 @@ msgstr ""
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__to-auth
 msgid "To authorize"
 msgstr "Por autorizar"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.fermo_view_production_lot_tree
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Total"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+msgid "Total $"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.fermo_view_production_lot_tree
+msgid "Transfer to"
+msgstr ""
 
 #. module: fermotex
 #. odoo-javascript
