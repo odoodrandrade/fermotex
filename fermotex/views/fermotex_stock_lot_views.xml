@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="fermo_view_production_lot_tree" model="ir.ui.view">
+            <field name="name">fermo.stock.production.lot.tree</field>
+            <field name="model">stock.lot</field>
+            <field name="arch" type="xml">
+                <tree string="Lots/Serial Numbers" multi_edit="1">
+                    <field name="name" decoration-bf="1"/>
+                    <field name="product_qty_fermo" sum="Total"/>
+                    <field name="ref" optional="show"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="create_date" optional="show"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="last_delivery_partner_id" optional="hide" string="Transfer to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="search_product_lot_filter_inherith" model="ir.ui.view">
+            <field name="name">product.lot.filter.inherit</field>
+            <field name="model">stock.lot</field>
+            <field name="inherit_id" ref="stock.search_product_lot_filter"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <filter string="More than 0" name="filter_existences" domain="[('product_qty_fermo', '>', 0)]"
+                            help="Show items with more than 0 quantity"/>
+                </field>
+            </field>
+        </record>
+
+
+
+        <record id="fermo_action_production_lot_form" model="ir.actions.act_window">
+            <field name="name">Lots/Serial Numbers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.lot</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('fermo_view_production_lot_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('stock.view_production_lot_form')})]"/>
+            <field name="search_view_id" ref="stock.search_product_lot_filter"/>
+            <field name="context">{'search_default_group_by_product': 1,
+                'search_default_filter_existences': 1,
+                'display_complete': True,
+                'default_company_id': allowed_company_ids[0]}
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a lot/serial number
+                </p>
+                <p>
+                    Lots/Serial numbers help you tracking the path followed by your products.
+                    From their traceability report you will see the full history of their use, as well as their
+                    composition.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="fermo_product_form_view_procurement_button" model="ir.ui.view">
+            <field name="name">product.product.procurement</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_open_product_lot']" position="replace">
+                    <button string="Lot/Serial Numbers" type="object"
+                            name="fermo_action_open_product_lot"
+                            attrs="{'invisible': [('tracking', '=', 'none')]}"
+                            class="oe_stat_button" icon="fa-bars" groups="stock.group_production_lot"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fermo_product_template_form_view_procurement_button">
+            <field name="name">product.template_procurement</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_open_product_lot']" position="replace">
+                    <button string="Lot/Serial Numbers" type="object"
+                            name="fermo_action_open_product_lot"
+                            attrs="{'invisible': [('tracking', '=', 'none')]}"
+                            class="oe_stat_button" icon="fa-bars" groups="stock.group_production_lot"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
