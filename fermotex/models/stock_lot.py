@@ -7,7 +7,7 @@ class StockLotInherith(models.Model):
 
     product_qty_fermo = fields.Float('Quantity', store=True)
 
-    @api.depends('quant_ids', 'quant_ids.quantity')
+    @api.depends('quant_ids', 'quant_ids.quantity', 'quant_ids.quantity_fermo')
     def _product_qty(self):
         for lot in self:
             # We only care for the quants in internal or transit locations.

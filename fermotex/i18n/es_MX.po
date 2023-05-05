@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e-20230106\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-29 05:41+0000\n"
-"PO-Revision-Date: 2023-04-29 05:41+0000\n"
+"POT-Creation-Date: 2023-05-05 03:27+0000\n"
+"PO-Revision-Date: 2023-05-05 03:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -53,6 +53,11 @@ msgid ""
 "                            Estatus de Facturas\n"
 "                        </strong>"
 msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_accountinvoice_document_inherit
+msgid "<strong>Shipping Address:</strong>"
+msgstr "Dirección de envío"
 
 #. module: fermotex
 #: model_terms:ir.actions.act_window,help:fermotex.fermo_action_production_lot_form
@@ -103,6 +108,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:fermotex.view_order_form_inherit
 msgid "Confirm"
 msgstr "Confirmar"
+
+#. module: fermotex
+#. odoo-python
+#: code:addons/fermotex/models/stock_quant.py:0
+#, python-format
+msgid "Conflict in Inventory Adjustment"
+msgstr "Conflicto en el ajuste de inventario"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_move_form
@@ -158,6 +170,11 @@ msgstr ""
 #: model:ir.module.category,name:fermotex.module_category_fermotex
 msgid "Fermotex"
 msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_accountinvoice_document_inherit
+msgid "Fiscal Regime"
+msgstr "Régimen fiscal"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.account_invoice_view_tree
@@ -243,8 +260,14 @@ msgstr ""
 
 #. module: fermotex
 #: model:ir.model.fields,field_description:fermotex.field_stock_lot__product_qty_fermo
+#: model:ir.model.fields,field_description:fermotex.field_stock_quant__quantity_fermo
 msgid "Quantity"
 msgstr "Cantidad"
+
+#. module: fermotex
+#: model:ir.model,name:fermotex.model_stock_quant
+msgid "Quants"
+msgstr "Quants"
 
 #. module: fermotex
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__draft
@@ -332,6 +355,11 @@ msgid "Status sequence"
 msgstr ""
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_accountinvoice_document_inherit
+msgid "Tax ID"
+msgstr "RFC"
+
+#. module: fermotex
 #. odoo-javascript
 #: code:addons/fermotex/static/src/js/multi_pdf.js:0
 #, python-format
@@ -362,6 +390,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
 msgid "Total $"
 msgstr ""
+
+#. module: fermotex
+#. odoo-python
+#: code:addons/fermotex/models/stock_quant.py:0
+#, python-format
+msgid "Tracked Products in Inventory Adjustment"
+msgstr "Productos rastreados en ajuste de inventario"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.fermo_view_production_lot_tree
