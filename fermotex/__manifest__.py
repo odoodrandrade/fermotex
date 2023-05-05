@@ -28,6 +28,7 @@
         "views/fermotex_account_move.xml",
         "views/report_account_invoice_statement.xml",
         "views/fermotex_stock_lot_views.xml",
+        "report/report_invoice.xml",
     ],
     'qweb': [],
 }
