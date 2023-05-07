@@ -10,6 +10,7 @@ class StockQuantInherith(models.Model):
     def action_apply_inventory(self):
         products_tracked_without_lot = []
         for quant in self:
+            quant.lot_id.product_qty_fermo = quant.inventory_quantity
             quant.quantity_fermo = quant.quantity
             rounding = quant.product_uom_id.rounding
             if fields.Float.is_zero(quant.inventory_diff_quantity, precision_rounding=rounding) \
