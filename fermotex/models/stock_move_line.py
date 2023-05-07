@@ -5,7 +5,7 @@ from odoo import models, fields, api
 class StockMoveLineInherith(models.Model):
     _inherit = 'stock.move.line'
 
-    @api.onchange('reserved_uom_qty')
-    def _update_qty(self):
+    @api.onchange('lot_id')
+    def on_lot_id_change(self):
         for record in self:
-            print(record)
+            record.qty_done = record.lot_id.product_qty
