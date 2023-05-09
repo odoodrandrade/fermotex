@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_report_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//table[1]/thead/tr[1]/th[2]" position="after">
+            <th class="text-end">Quantity rolls</th>
+        </xpath>
+        <xpath expr="//table[1]/tbody/t[2]/tr[1]/t[1]/td[2]" position="after">
+            <td class="text-end">
+                <span t-field="line.qty_rolls"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>
