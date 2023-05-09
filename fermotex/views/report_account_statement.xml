@@ -12,7 +12,7 @@
 
                         <div id="informations" class="row">
 
-                            <div class="col-9 bm-2" style="padding-left: 15mm; padding-top: 3mm;">
+                                <div class="col-9 bm-2" style="padding-left: 15mm; padding-top: 3mm;">
                                 <p t-esc="partner_id"/>
                             </div>
                             <div class="col-3 bm-2" style="padding-left: 18mm; padding-top: 1mm;">

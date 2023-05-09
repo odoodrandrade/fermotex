@@ -31,6 +31,8 @@
         "views/fermotex_stock_move_line.xml",
 
         "report/report_invoice.xml",
+        "report/sale_order_report.xml",
+        "report/report_stock_picking.xml"
     ],
     'qweb': [],
 }

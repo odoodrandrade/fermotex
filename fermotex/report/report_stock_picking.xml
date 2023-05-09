@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="stock_picking_inherit" inherit_id="stock.report_picking">
+        <xpath expr="//div[hasclass('page')]" position="before">
+            <t t-set="total_done" t-value="0"/>
+        </xpath>
+        <xpath expr="//table[1]/tbody/t[1]/tr[1]/td[2]/span[1]" position="after">
+            <t t-set="total_done"
+               t-value="total_done+ml.qty_done"/>
+        </xpath>
+
+        <xpath expr="//table[1]" position="after">
+            <div style="padding-left: 100mm;">
+                <strong class="mr16">
+                    <t t-esc="'{0:,.2f}'.format(abs(total_done))"/>
+                </strong>
+            </div>
+        </xpath>
+    </template>
+</odoo>
