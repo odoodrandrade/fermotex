@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e-20230106\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 03:27+0000\n"
-"PO-Revision-Date: 2023-05-05 03:27+0000\n"
+"POT-Creation-Date: 2023-05-09 14:18+0000\n"
+"PO-Revision-Date: 2023-05-09 14:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,7 @@ msgstr "Asiento de diario"
 #. module: fermotex
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__done
 msgid "Locked"
-msgstr ""
+msgstr "Bloqueado"
 
 #. module: fermotex
 #: model:ir.model,name:fermotex.model_stock_lot
@@ -249,6 +249,11 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: fermotex
+#: model:ir.model,name:fermotex.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Movimientos de producto (Línea de movimientos de existencias)"
+
+#. module: fermotex
 #: model:ir.model,name:fermotex.model_product_product
 msgid "Product Variant"
 msgstr "Variantes de producto"
@@ -265,9 +270,15 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: fermotex
+#: model:ir.model.fields,field_description:fermotex.field_sale_order_line__qty_rolls
+#: model_terms:ir.ui.view,arch_db:fermotex.sale_report_inherit
+msgid "Quantity rolls"
+msgstr "Número de Rollos"
+
+#. module: fermotex
 #: model:ir.model,name:fermotex.model_stock_quant
 msgid "Quants"
-msgstr "Quants"
+msgstr ""
 
 #. module: fermotex
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__draft
@@ -304,6 +315,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__sale
 msgid "Sales Order"
 msgstr "Remisión"
+
+#. module: fermotex
+#: model:ir.model,name:fermotex.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de la orden de venta"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.view_move_form
@@ -383,8 +399,9 @@ msgstr "Por autorizar"
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.fermo_view_production_lot_tree
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
+#: model_terms:ir.ui.view,arch_db:fermotex.view_stock_move_line_detailed_operation_tree_inherith
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
