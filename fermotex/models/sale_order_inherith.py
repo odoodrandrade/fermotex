@@ -49,3 +49,12 @@ class SaleOrderInherith(models.Model):
             self.write({'state': 'authorized'})
         else:
             self.write({'state': 'to-auth'})
+
+    def action_confirm(self):
+        res = super(SaleOrderInherith, self.with_context(default_immediate_transfer=True)).action_confirm()
+        for order in self:
+            if order.picking_ids:
+                for picking in self.picking_ids:
+                    for move_lines in picking.move_line_ids:
+                        move_lines.unlink()
+        return res
