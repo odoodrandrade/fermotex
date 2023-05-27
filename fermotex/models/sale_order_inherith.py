@@ -40,19 +40,19 @@ class SaleOrderInherith(models.Model):
 
     @api.depends('order_line.price_subtotal')
     def _compute_has_to_be_confirm(self):
-        need_authorization = False
-        for lines in self.order_line:
-            if lines.price_unit < lines.product_id.list_price:
-                need_authorization = True
-        self.need_auth = need_authorization
-        if self.state != 'sale':
-            if need_authorization is False:
-                self.write({'state': 'authorized'})
+        for records in self:
+            need_authorization = False
+            for lines in records.order_line:
+                if lines.price_unit < lines.product_id.list_price:
+                    need_authorization = True
+            records.need_auth = need_authorization
+            if records.state != 'sale':
+                if need_authorization is False:
+                    records.write({'state': 'authorized'})
+                else:
+                    records.write({'state': 'to-auth'})
             else:
-                self.write({'state': 'to-auth'})
-        else:
-            self.invoice_status = 'to invoice'
-
+                records.invoice_status = 'to invoice'
 
     def action_confirm(self):
         res = super(SaleOrderInherith, self.with_context(default_immediate_transfer=True)).action_confirm()
