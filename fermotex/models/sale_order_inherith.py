@@ -45,10 +45,14 @@ class SaleOrderInherith(models.Model):
             if lines.price_unit < lines.product_id.list_price:
                 need_authorization = True
         self.need_auth = need_authorization
-        if need_authorization is False:
-            self.write({'state': 'authorized'})
+        if self.state != 'sale':
+            if need_authorization is False:
+                self.write({'state': 'authorized'})
+            else:
+                self.write({'state': 'to-auth'})
         else:
-            self.write({'state': 'to-auth'})
+            self.invoice_status = 'to invoice'
+
 
     def action_confirm(self):
         res = super(SaleOrderInherith, self.with_context(default_immediate_transfer=True)).action_confirm()
