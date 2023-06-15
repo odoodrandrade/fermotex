@@ -11,6 +11,6 @@ class StockMoveLine(models.Model):
         for rec in self:
             if rec.product_id and rec.location_id:
                 quants = rec.env['stock.quant'].search([('lot_id', '!=', False), ('location_id', '=', rec.location_id.id), ('product_id', '=', rec.product_id.id)])
-                rec.pw_available_lot_ids = quants.filtered(lambda x: (x.quantity - x.reserved_quantity) > 0).mapped('lot_id').ids
+                rec.pw_available_lot_ids = quants.filtered(lambda x: x.quantity > 0).mapped('lot_id').ids
             else:
                 rec.pw_available_lot_ids = [(6, 0, [])]
