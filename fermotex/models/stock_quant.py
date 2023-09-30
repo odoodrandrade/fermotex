@@ -8,6 +8,12 @@ class StockQuantInherith(models.Model):
     quantity_fermo = fields.Float('Quantity', store=True)
 
     @api.model
+    def _get_inventory_fields_create(self):
+        """ Returns a list of fields user can edit when he want to create a quant in `inventory_mode`.
+        """
+        return ['product_id', 'location_id', 'lot_id', 'package_id', 'owner_id'] + self._get_inventory_fields_write()
+
+    @api.model
     def _get_inventory_fields_write(self):
         """ Returns a list of fields user can edit when he want to edit a quant in `inventory_mode`.
         """
