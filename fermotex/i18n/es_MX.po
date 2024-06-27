@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e-20230106\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-09 14:18+0000\n"
-"PO-Revision-Date: 2023-05-09 14:18+0000\n"
+"POT-Creation-Date: 2024-06-27 04:10+0000\n"
+"PO-Revision-Date: 2024-06-27 04:10+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,52 @@ msgstr ""
 #: model:ir.actions.report,print_report_name:fermotex.action_report_account_invoice_statement
 msgid "'Estado de cuenta facturas'"
 msgstr ""
+
+#. module: fermotex
+#: model:ir.actions.report,print_report_name:fermotex.action_report_picking_pantalon
+msgid ""
+"'Picking Operations - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+"'Operaciones de picking - %s - %s' % (object.partner_id.name or '', "
+"object.name)"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.stock_picking_inherit
+msgid ""
+"<br/>\n"
+"                            Total Rollos:"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid ""
+"<i class=\"fa fa-exclamation-triangle\"/>\n"
+"                                All products could not be reserved. Click on the \"Check Availability\" button to try to reserve products."
+msgstr ""
+"<i class=\"fa fa-exclamation-triangle\"/>\n"
+"                                Todos los productos no pueden ser reservados. Haga clic en el botón \"Comprobar disponibilidad\" para intentar reservar productos."
+
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<span><strong>Customer Address:</strong></span>"
+msgstr "<span><strong>Dirección del Cliente:</strong></span>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<span><strong>Delivery Address:</strong></span>"
+msgstr "<span><strong>Dirección de Envío:</strong></span>"
+
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<span><strong>Vendor Address:</strong></span>"
+msgstr "<span><strong>Dirección de Proveedor:</strong></span>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<span><strong>Warehouse Address:</strong></span>"
+msgstr "<span><strong>Dirección de almacén:</strong></span>"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
@@ -55,9 +101,55 @@ msgid ""
 msgstr ""
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>From</strong>"
+msgstr "<strong>Desde</strong>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>Lot/Serial Number</strong>"
+msgstr "<strong>Número Lote/Serie</strong>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>Order:</strong>"
+msgstr "<strong>Orden:</strong>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>Product Barcode</strong>"
+msgstr "<strong>Código de barras del producto</strong>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>Product</strong>"
+msgstr "<strong>Producto</strong>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Cantidad</strong>"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>Scheduled Date:</strong>"
+msgstr "<strong>Cita agendada:</strong>"
+
+#. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.report_accountinvoice_document_inherit
 msgid "<strong>Shipping Address:</strong>"
 msgstr "Dirección de envío"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>Status:</strong>"
+msgstr "<strong>Estado:</strong>"
+
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "<strong>To</strong>"
+msgstr "<strong>A</strong>"
 
 #. module: fermotex
 #: model_terms:ir.actions.act_window,help:fermotex.fermo_action_production_lot_form
@@ -177,6 +269,11 @@ msgid "Fiscal Regime"
 msgstr "Régimen fiscal"
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "From"
+msgstr "Desde"
+
+#. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.account_invoice_view_tree
 msgid "Imprimir Estado de cuenta"
 msgstr ""
@@ -234,6 +331,16 @@ msgid "Número"
 msgstr ""
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_type_label
+msgid "Operation Types"
+msgstr "Tipos de operación"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "Package"
+msgstr "Paquete"
+
+#. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
 msgid "Pagado"
 msgstr ""
@@ -242,6 +349,16 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
 msgid "Pagado parcialmente"
 msgstr ""
+
+#. module: fermotex
+#: model:ir.actions.report,name:fermotex.action_report_picking_pantalon
+msgid "Picking Operations Jeans"
+msgstr "Operaciones de recolección"
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.view_picking_form_inherith
+msgid "Print"
+msgstr "Imprimir"
 
 #. module: fermotex
 #: model:ir.model,name:fermotex.model_product_template
@@ -314,7 +431,7 @@ msgstr ""
 #: model:ir.model,name:fermotex.model_sale_order
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__sale
 msgid "Sales Order"
-msgstr "Remisión"
+msgstr "Orden de venta"
 
 #. module: fermotex
 #: model:ir.model,name:fermotex.model_sale_order_line
@@ -371,6 +488,11 @@ msgid "Status sequence"
 msgstr ""
 
 #. module: fermotex
+#: model:ir.model,name:fermotex.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de existencias"
+
+#. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.report_accountinvoice_document_inherit
 msgid "Tax ID"
 msgstr "RFC"
@@ -392,6 +514,11 @@ msgid "Tipo de factura fermotex"
 msgstr ""
 
 #. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.report_picking_pantalon
+msgid "To"
+msgstr "Hasta"
+
+#. module: fermotex
 #: model:ir.model.fields.selection,name:fermotex.selection__sale_order__state__to-auth
 msgid "To authorize"
 msgstr "Por autorizar"
@@ -401,11 +528,16 @@ msgstr "Por autorizar"
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
 #: model_terms:ir.ui.view,arch_db:fermotex.view_stock_move_line_detailed_operation_tree_inherith
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.report_account_invoice_statement
 msgid "Total $"
+msgstr ""
+
+#. module: fermotex
+#: model_terms:ir.ui.view,arch_db:fermotex.stock_picking_inherit
+msgid "Total Cantidad:"
 msgstr ""
 
 #. module: fermotex
@@ -414,6 +546,11 @@ msgstr ""
 #, python-format
 msgid "Tracked Products in Inventory Adjustment"
 msgstr "Productos rastreados en ajuste de inventario"
+
+#. module: fermotex
+#: model:ir.model,name:fermotex.model_stock_picking
+msgid "Transfer"
+msgstr "Traslado"
 
 #. module: fermotex
 #: model_terms:ir.ui.view,arch_db:fermotex.fermo_view_production_lot_tree
@@ -457,3 +594,14 @@ msgid ""
 "You are not allowed to confirm orders, please contact your system "
 "administrator."
 msgstr ""
+
+#. module: fermotex
+#. odoo-python
+#: code:addons/fermotex/models/stock_move_line.py:0
+#, python-format
+msgid ""
+"You can not delete product moves if the picking is done. You can only "
+"correct the done quantities."
+msgstr ""
+"No puede eliminar movimientos del producto si el albarán está realizado. "
+"Solo puede corregir las cantidades hechas."
