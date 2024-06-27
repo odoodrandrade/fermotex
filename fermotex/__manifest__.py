@@ -13,7 +13,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'account', 'sale_management', 'stock', 'account_accountant', 'purchase', 'mail', 'contacts'],
+    'depends': ['base', 'account', 'sale_management', 'stock', 'account_accountant', 'purchase', 'mail', 'contacts','stock', 'hr_expense'],
     'images': ['src/img/logo.png'],
     'installable': True,
     'active': True,
@@ -29,10 +29,15 @@
         "views/report_account_invoice_statement.xml",
         "views/fermotex_stock_lot_views.xml",
         "views/fermotex_stock_move_line.xml",
+        "views/fermotex_stock_picking_views.xml",
+
 
         "report/report_invoice.xml",
         "report/sale_order_report.xml",
-        "report/report_stock_picking.xml"
+        "report/report_stockpicking_operations_pantalon.xml",
+        "report/stock_report_view_inherith.xml",
+        "report/report_stock_picking.xml",
+        "report/hr_expense_report.xml"
     ],
     'qweb': [],
 }
