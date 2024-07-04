@@ -8,7 +8,7 @@ class PickingInherith(models.Model):
         self.write({'printed': True})
         if any("MEZCLILLA" in record.product_id.name for record in self.move_line_ids):
             # Acción si al menos un producto contiene "MEZCLILLA" en el nombre
-            return self.env.ref('fermotex.action_report_picking_pantalon').report_action(self)
+            return self.env.ref('fermotex.action_report_picking').report_action(self)
         else:
             # Acción si ningún producto contiene "MEZCLILLA" en el nombre
-            return self.env.ref('stock.action_report_picking').report_action(self)
+            return self.env.ref('stock.action_report_picking_pantalon').report_action(self)
