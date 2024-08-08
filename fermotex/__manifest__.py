@@ -13,7 +13,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'account', 'sale_management', 'stock', 'account_accountant', 'purchase', 'mail', 'contacts','stock', 'hr_expense'],
+    'depends': ['base', 'account', 'sale_management', 'stock', 'sale_stock', 'account_accountant', 'purchase', 'mail', 'contacts','stock', 'hr_expense'],
     'images': ['src/img/logo.png'],
     'installable': True,
     'active': True,
