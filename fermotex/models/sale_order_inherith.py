@@ -48,7 +48,8 @@ class SaleOrderInherith(models.Model):
             records.need_auth = need_authorization
             if records.state != 'sale':
                 if need_authorization is False:
-                    records.write({'state': 'authorized'})
+                    if not records.website_id:
+                        records.write({'state': 'authorized'})
                 else:
                     records.write({'state': 'to-auth'})
             else:
